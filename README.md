@@ -1,2 +1,2 @@
 # myGarage
-My garage is an app POC for tracking home auto repair
+My garage is a web app POC for tracking home auto repair
