@@ -10,6 +10,13 @@
 
 <body>
     <h1>My Garage</h1>
+    <h2>My Cars</h2>
+    <h2>My Trucks</h2>
+    <h2>My Motorcycles</h2>
+    <h2>My Lawn Equipmnt</h2>
+    <h2>Other</h2>
+
+
 </body>
 
 </html>

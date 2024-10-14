@@ -23,9 +23,9 @@ $_SESSION['test'] = 'test value';
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-            <li class="nav-item"><a href="/public/my-garage.php" class="nav-link">My Garage</a></li>
-            <li class="nav-item"><a href="/public/maintenance.php" class="nav-link">Maintenance Schedule</a></li>
-            <li class="nav-item"><a href="/public/notes.php" class="nav-link">Notes</a></li>
+            <li class="nav-item"><a href="/php/public/my-garage.php" class="nav-link">My Garage</a></li>
+            <li class="nav-item"><a href="/php/public/maintenance.php" class="nav-link">Maintenance Schedule</a></li>
+            <li class="nav-item"><a href="/php/public/notes.php" class="nav-link">Notes</a></li>
         </ul>
 
         <h1>Welcome to the Home Mechanic's Garage</h1>
