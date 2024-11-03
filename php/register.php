@@ -1,7 +1,6 @@
 <?php
 include './cfg.php';
-session_set_cookie_params(0, '/', '', true, true); // Lifetime 0 means until the browser is closed
-session_start();
+include 'session.php';
 
 /**
  * on POST request, 

@@ -1,13 +1,13 @@
 <?php
 //set cookie params and start session
-session_set_cookie_params(0, '/', '', true, true);
-session_start();
-
+include './session.php';
 include('./cfg.php');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['loginUsername'];
     $password = $_POST['loginPassword'];
-    $sqlLogin = "SELECT username, password from users where username = :username or email = :username;";
+
+    $sqlLogin = "SELECT * from users where username = :username or email = :username;";
     $stmt = $pdo->prepare($sqlLogin);
     $stmt->execute(['username' => $username]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['activeUser'] = $result['username'];
         $_SESSION['activeUserId'] = $result['user_id'];
         $activeUser = $_SESSION['activeUser'];
-        $activeUserId = $_SESSION['activeUserId'];
+        $activeUserId = $_SESSION['user_id'];
         echo "<script type='text/javascript'>alert('Welcome, $activeUser');
         window.location.replace('/public');
         </script>";

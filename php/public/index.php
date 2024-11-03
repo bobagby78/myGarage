@@ -1,6 +1,5 @@
 <?php
-session_start();
-$_SESSION['test'] = 'test value';
+include('session.php');
 ?>
 
 <!doctype html>
