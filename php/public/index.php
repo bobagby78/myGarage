@@ -54,7 +54,6 @@ $_SESSION['test'] = 'test value';
                             <input class="mt-3 btn btn-success" type="submit" value="Enter the garage">
                         </div>
                     </form>
-                    <a href="/signOut.php" class="session-destroy"><button>DESTROY SESSION</button></a>
 
                 </div>
                 <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
@@ -79,9 +78,8 @@ $_SESSION['test'] = 'test value';
                             <input class="mt-3 btn btn-success" type="submit" value="Register">
                         </div>
                     </form>
-                    <a href="/signOut.php" class="session-destroy"><button>DESTROY SESSION</button></a>
                 </div>
-
+                <a href="/signOut.php" class="logout"><button type="button" class="btn btn-danger">Log Out</button></a>
                 <div>
                 </div>
             </div>
