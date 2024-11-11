@@ -1,6 +1,7 @@
 <?php
 include './session.php';
 require './cfg.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     /**
      * snag input from post request

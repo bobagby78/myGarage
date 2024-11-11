@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //if email exists, alert that the email is already in use
         foreach ($result as $r) {
             if ($r['email'] == $email) {
-                var_dump($r['email']);
                 echo "<script type='text/javascript'>alert('Your email has an account. Recover?');
                 window.location.replace('/public');
                 </script>";
@@ -40,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // header("location:/public");
             }
             if ($r['username'] == $username) {
-                var_dump($r['username']);
                 echo "<script type='text/javascript'>alert('You chose poorly, try another username.');
                 window.location.replace('/public');
                 </script>";

@@ -32,3 +32,17 @@
 .add-vehicle{
     margin-top: 3em;
 }
+
+/*Vehicle tables*/
+.vehicle-table>th, .vehicle-table>td{
+    padding: 5px 20px;
+}
+
+.vehicle-table>th{
+    font-size: 20px;
+}
+
+.vehicle-table>td{
+    font-size: 15px;
+}
+
