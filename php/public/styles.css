@@ -46,3 +46,19 @@
     font-size: 15px;
 }
 
+/*newMaintenance*/
+.new-maint-section{
+    display: inline-block;
+}
+
+.maint-header {
+    margin: 10px 0;
+}
+
+#oilType {
+    min-width: 400px;
+}
+
+#log-maint-button {
+    margin-top: 20px;
+}
