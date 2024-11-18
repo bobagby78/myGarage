@@ -15,15 +15,6 @@ $stmt = $pdo->prepare($sqlGetVehicles);
 $stmt->execute(['id' => $userId]);
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($result as $vehicle) {
-    $vehicleCard = "
-        <div>
-            <span>Vehicle</span>
-            <span>{$vehicle['make']}</span>
-        </div>
-    ";
-}
-
 $carsArr = [];
 $trucksArr = [];
 $cyclesArr = [];
@@ -46,11 +37,12 @@ foreach ($result as $vehicle) {
             array_push($lawnArr, $vehicle);
             break;
         case 'other':
-            array_push($$otherArr, $vehicle);
+            array_push($otherArr, $vehicle);
             break;
     }
 }
 
+$vehiclesArr = [$carsArr, $trucksArr, $cyclesArr, $lawnArr, $otherArr];
 
 ?>
 <!DOCTYPE html>
@@ -91,7 +83,7 @@ foreach ($result as $vehicle) {
                                     <td><?= $car['make'] ?></td>
                                     <td><?= $car['model'] ?></td>
                                     <td>Latest Maintenance</td>
-                                    <td><button class="btn btn-warning">Log Maintenance</button></td>
+                                    <td><a href="/public/maintenance?id=<?= $car['id'] ?>" class="btn btn-warning">Log Maintenance</a></td>
                                 </tr>
 
                             </table>
@@ -114,16 +106,15 @@ foreach ($result as $vehicle) {
                                     <th>Latest Maintenance</th>
                                     <th>Log Maintenance</th>
                                 </tr>
-                                <t>
+                                <tr class="vehicle-table">
                                     <td><?= $truck['vehicle_year'] ?></td>
-                                    r <td><?= $truck['make'] ?></td>
+                                    <td><?= $truck['make'] ?></td>
                                     <td><?= $truck['model'] ?></td>
                                     <td>Latest Maintenance</td>
-                                    <td><button class="btn btn-warning">Log Maintenance</button></td>
-                                </t>
+                                    <td><a href="/public/maintenance?id=<?= $truck['id'] ?>" class="btn btn-warning">Log Maintenance</a></td>
+                                </tr>
                             </table>
                         </div>
-
                     <?php endforeach; ?>
                 <?php else: ?>
                 <?php endif; ?>
@@ -146,7 +137,7 @@ foreach ($result as $vehicle) {
                                     <td><?= $cycle['make'] ?></td>
                                     <td><?= $cycle['model'] ?></td>
                                     <td>Latest Maintenance</td>
-                                    <td><button class="btn btn-warning">Log Maintenance</button></td>
+                                    <td><a href="/public/maintenance?id=<?= $cycle['id'] ?>" class="btn btn-warning">Log Maintenance</a></td>
                                 </tr>
                             </table>
                         </div>
@@ -173,7 +164,7 @@ foreach ($result as $vehicle) {
                                     <td><?= $lawn['make'] ?></td>
                                     <td><?= $lawn['model'] ?></td>
                                     <td>Latest Maintenance</td>
-                                    <td><button class="btn btn-warning">Log Maintenance</button></td>
+                                    <td><a href="/public/maintenance?id=<?= $lawn['id'] ?>" class="btn btn-warning">Log Maintenance</a></td>
                                 </tr>
                             </table>
                         </div>
@@ -199,7 +190,7 @@ foreach ($result as $vehicle) {
                                     <td><?= $other['make'] ?></td>
                                     <td><?= $other['model'] ?></td>
                                     <td>Latest Maintenance</td>
-                                    <td><button class="btn btn-warning">Log Maintenance</button></td>
+                                    <td><a href="/public/maintenance?id=<?= $other['id'] ?>" class="btn btn-warning">Log Maintenance</a></td>
                                 </tr>
                             </table>
                         </div>
@@ -230,6 +221,15 @@ foreach ($result as $vehicle) {
             </form>
         </div>
     </div>
+
+    <?= var_dump($_SESSION) ?>
+    <br>
+    <?php
+    foreach ($vehiclesArr as $vehicle) {
+        var_dump($vehicle);
+        echo '<br>';
+    }
+    ?>
 </body>
 
 </html>

@@ -20,7 +20,7 @@ include '../session.php';
         <ul class="nav nav-pills">
             <li class="nav-item"><a class="nav-link active" href="/public/">Home</a></li>
             <li class="nav-item"><a href="/public/my-garage.php" class="nav-link">My Garage</a></li>
-            <li class="nav-item"><a href="/public/maintenance.php" class="nav-link">Maintenance Schedule</a></li>
+            <li class="nav-item"><a href="/public/maintenance/index.php" class="nav-link">Maintenance Schedule</a></li>
             <li class="nav-item"><a href="/public/notes.php" class="nav-link">Notes</a></li>
         </ul>
     </div>
