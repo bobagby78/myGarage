@@ -1,13 +1,17 @@
 <?php
 //set cookie params and start session
-session_set_cookie_params(0, '/', '', true, true);
-session_start();
-
 include('./cfg.php');
+require_once './public/classes/User.php';
+include './session.php';
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     $username = $_POST['loginUsername'];
     $password = $_POST['loginPassword'];
-    $sqlLogin = "SELECT username, password from users where username = :username or email = :username;";
+
+    $sqlLogin = "SELECT * from users where username = :username or email = :username;";
     $stmt = $pdo->prepare($sqlLogin);
     $stmt->execute(['username' => $username]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -19,14 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </script>";
     } else {
         //set $_SESSION params, alert welcome msg, eventually redirect to my garage page for user
-        $_SESSION['activeUser'] = $result['username'];
-        $_SESSION['activeUserId'] = $result['user_id'];
-        $activeUser = $_SESSION['activeUser'];
-        $activeUserId = $_SESSION['activeUserId'];
-        echo "<script type='text/javascript'>alert('Welcome, $activeUser');
+        $activeUser = $_SESSION['activeUser'] = new User($result['user_id'], $result['email'], $result['username'], $result['password']);
+        echo "<script type='text/javascript'>alert('Welcome, $activeUser->username');
         window.location.replace('/public');
         </script>";
     }
 }
-
-// header("Location: /public");
