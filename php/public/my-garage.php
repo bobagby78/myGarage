@@ -42,6 +42,7 @@ foreach ($result as $vehicle) {
     }
 }
 
+
 $vehiclesArr = [$carsArr, $trucksArr, $cyclesArr, $lawnArr, $otherArr];
 
 ?>
