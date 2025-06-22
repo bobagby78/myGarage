@@ -11,16 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $vehicleYear = $_POST['vehicle-year'];
     $vehicleMake = $_POST['vehicle-make'];
     $vehicleModel = $_POST['vehicle-model'];
+    $odometer = $_POST['odometer'];
 
-    $sqlAddCar = "INSERT INTO garage (user_id, vehicle_type, vehicle_year, make, model) 
-                                VALUES(:activeUserId, :vehicleType, :vehicleYear, :vehicleMake, :vehicleModel)";
+    $sqlAddCar = "INSERT INTO garage (user_id, vehicle_type, vehicle_year, make, model, odometer) 
+                                VALUES(:activeUserId, :vehicleType, :vehicleYear, :vehicleMake, :vehicleModel, :odometer)";
     $stmt = $pdo->prepare($sqlAddCar);
     $stmt->execute([
         'activeUserId' => $userId,
         'vehicleType' => $vehicleType,
         'vehicleYear' => $vehicleYear,
         'vehicleMake' => $vehicleMake,
-        'vehicleModel' => $vehicleModel
+        'vehicleModel' => $vehicleModel,
+        'odometer' => $odometer
     ]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 }
