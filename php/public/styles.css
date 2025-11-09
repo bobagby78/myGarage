@@ -7,13 +7,6 @@
     display: block;
 }
 
-.header{
-    background-color: aliceblue !important;
-    padding: 5px 0 !important;
-    font-family: 'Courier New', Courier, monospace;
-
-}
-
 .garage-heading{
     border-bottom: 1px solid black;
 }
