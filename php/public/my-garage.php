@@ -1,4 +1,11 @@
-<?php ?>
+<?php
+include '../session.php';
+var_dump($_SESSION)
+
+//add code here to get data related to user and populate garage with vehicles
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +60,7 @@
                     <option value="lawn">Lawn Equipment</option>
                     <option value="other">Other</option>
                 </select>
-                <input class="form-control" id="vehicle-year" type="text" placeholder="Year: YYYY">
+                <input class="form-control" id="vehicle-year" name="year" type="text" placeholder="Year: YYYY">
                 <input class="form-control" id="vehicle-make" name="vehicle-make" type="text" placeholder="Make">
                 <input class="form-control" id="vehicle-model" name="vehicle-model" type="text" placeholder="Model">
                 <input type="submit">
