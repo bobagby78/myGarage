@@ -54,10 +54,13 @@
                     <option value="other">Other</option>
                 </select>
                 <input class="form-control" id="vehicle-year" type="text" placeholder="Year: YYYY">
-                <select class="form-select" name="vehicle-make" id="vehicle-make">
-                    <option value="select">Select a vehicle manufacturer</option>
-                    <!-- add vehicle make options here, from database (or API) -->
-                </select>
+                <input class="form-control" id="vehicle-make" name="vehicle-make" type="text" placeholder="Make">
+                <input class="form-control" id="vehicle-model" name="vehicle-model" type="text" placeholder="Model">
+                <input type="submit">
+                <!-- <select class="form-select" name="vehicle-make" id="vehicle-make" -->
+                <!-- <option value="select">Select a vehicle manufacturer</option> -->
+                <!-- add vehicle make options here, from database (or API) -->
+                <!-- </select> -->
             </form>
         </div>
 
