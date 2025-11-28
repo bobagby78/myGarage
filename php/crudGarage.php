@@ -26,3 +26,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 }
+header('Location: /public/my-garage.php');
+exit();

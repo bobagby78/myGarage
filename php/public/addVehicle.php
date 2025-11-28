@@ -5,14 +5,11 @@
     $response = curl_exec($ch);
     curl_close($ch);
     $vehicleMakes = [];
+    $counter = 0;
     $vehicleMakesData = json_decode($response, true);
     foreach($vehicleMakesData["Results"] as $vehicleMake){
-        foreach($vehicleMake as $vehicleMakeName){
-            array_push($vehicleMakes, $vehicleMakeName);
-        }
+        $vehicleMakes[] = $vehicleMake["Make_Name"];
     }
-    var_dump($vehicleMakes);
-
 ?>
 
 
@@ -28,14 +25,17 @@
             <option name="other" value="other">Other</option>
         </select>
         <input class="form-control" id="vehicle-year" type="text" name="vehicle-year" placeholder="Year: YYYY">
-        <input class="form-control" id="vehicle-make" type="text" name="vehicle-make" placeholder="Make">
+        <input list="makes-list" class="form-control" id="vehicle-make" type="text" name="vehicle-make" placeholder="Make">
+        <datalist id="makes-list">
+            <?php foreach ($vehicleMakes as $vehicleMake) :?>
+                <?php $vehicleMake = ucwords(strtolower($vehicleMake))?>;
+                <option value=<?=$vehicleMake?>><?=$vehicleMake?></option>
+            <?php endforeach?>
+        </datalist>
         <input class="form-control" id="vehicle-model" type="text" name="vehicle-model" placeholder="Model">
         <input class="form-control" id="vehicle-odometer" type="text" name="odometer" placeholder="Odometer or Hours">
 
-        <!-- <select class="form-select" name="vehicle-make" id="vehicle-make"> -->
-        <!-- <option value="select">Select a vehicle manufacturer</option> -->
-        <!-- add vehicle make options here, from database (or API) -->
-        <!-- </select> -->
+
         <input type="submit" class="btn btn-success" value="Add Vehicle">
     </form>
 </div>
